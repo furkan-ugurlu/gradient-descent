@@ -1,41 +1,39 @@
-# Gradient Descent Demo 
+# Gradient Descent Demo (Numpy)
 
 This project demonstrates the basic logic of gradient descent using Numpy. The code randomly generates input data, weights, and biases, then tries to fit the weights and biases to match a target output using gradient descent.
 
 ## How It Works
 
 - **Random Data Generation:**  
-  Inputs (`x_list`), weights (`w_list`), and biases (`b_list`) are randomly initialized.
+  - Inputs (`x_list`), weights (`w_list`), and biases (`b_list`) are randomly initialized.
 - **Target Calculation:**  
-  The target output is calculated as:  
-  **y = x · w + b**  
-  where `x` and `w` are vectors, and `b` is a bias term.
+  - The target output is calculated as:  
+    **y = x · w + b**  
+    where `x` and `w` are vectors, and `b` is a bias term.
 - **Gradient Descent:**  
-  The code iteratively updates the weights and biases to minimize the mean squared error (MSE) between the predicted output and the target.
+  - The code iteratively updates the weights and biases to minimize the mean squared error (MSE) between the predicted output and the target.
 
-## Mathematical Formulation
+## Mathematical Formula
 
-**Model Prediction:**
-\[
-\hat{y} = x \cdot w + b
-\]
+The model predicts output as:
+```
+y_pred = x · w + b
+```
+The loss function (Mean Squared Error) is:
+```
+L = (1/N) * Σ (y_pred - y_target)^2
+```
+The gradients used for updating parameters:
+- For weights:  
+  ```
+  ∂L/∂w = (2/N) * (y_pred - y_target) * x
+  ```
+- For bias:  
+  ```
+  ∂L/∂b = (2/N) * (y_pred - y_target)
+  ```
 
-**Loss Function (Mean Squared Error):**
-\[
-L = \frac{1}{N} \sum_{i=1}^{N} (\hat{y}_i - y_i)^2
-\]
-
-**Gradients:**
-- For weights:
-\[
-\frac{\partial L}{\partial w} = \frac{2}{N} \sum_{i=1}^{N} (\hat{y}_i - y_i) \cdot x_i
-\]
-- For bias:
-\[
-\frac{\partial L}{\partial b} = \frac{2}{N} \sum_{i=1}^{N} (\hat{y}_i - y_i)
-\]
-
-> **Note:** In the code, the factor 2 is omitted for simplicity and absorbed into the learning rate.
+In the code, the gradients are simplified (without the factor 2, which is absorbed into the learning rate for simplicity).
 
 ## How to Run
 
@@ -57,3 +55,6 @@ L = \frac{1}{N} \sum_{i=1}^{N} (\hat{y}_i - y_i)^2
 - The code is intended for educational use to illustrate the steps of gradient descent.
 
 ---
+
+**Author:**  
+Furkan Uğurlu  
