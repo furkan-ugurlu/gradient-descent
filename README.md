@@ -21,16 +21,16 @@ y_pred = x · w + b
 ```
 The loss function (Mean Squared Error) is:
 ```
-L = (1/N) * Σ (y_pred - y_target)^2
+L = (1/2N) * Σ (y_pred - y_target)^2
 ```
 The gradients used for updating parameters:
 - For weights:  
   ```
-  ∂L/∂w = (2/N) * (y_pred - y_target) * x
+  ∂L/∂w = (1/N) * (y_pred - y_target) * x
   ```
 - For bias:  
   ```
-  ∂L/∂b = (2/N) * (y_pred - y_target)
+  ∂L/∂b = (1/N) * (y_pred - y_target)
   ```
 
 In the code, the gradients are simplified (without the factor 2, which is absorbed into the learning rate for simplicity).
@@ -54,7 +54,4 @@ In the code, the gradients are simplified (without the factor 2, which is absorb
 - Each sample has its own weights and bias in this demo, which is different from classical linear regression (where all samples share the same weights and bias). This is for demonstration purposes.
 - The code is intended for educational use to illustrate the steps of gradient descent.
 
----
 
-**Author:**  
-Furkan Uğurlu  
